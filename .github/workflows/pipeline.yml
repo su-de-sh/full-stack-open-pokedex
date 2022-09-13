@@ -1,5 +1,5 @@
 
-name: Hello World!
+name: Project pipeline workflow!
 
 on:
   push:
