@@ -7,4 +7,8 @@ describe("Pokedex", function () {
       "Pokémon and Pokémon character names are trademarks of Nintendo."
     );
   });
+  it("navigate to particular pokemon", function () {
+    cy.contains("ivysaur").click();
+    cy.contains("chlorophyll");
+  });
 });
