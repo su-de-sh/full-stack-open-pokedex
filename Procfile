@@ -1,2 +1,2 @@
-web: node app.js
+web: npm run start-prod
 ###for dummy commit
