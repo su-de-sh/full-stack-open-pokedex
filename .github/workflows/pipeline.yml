@@ -33,6 +33,6 @@ jobs:
       - name: deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}} #Secret key for heroku api
           heroku_app_name: "fullstack-pokedex321123" #Must be unique in Heroku
           heroku_email: "sudesh7443@gmail.com"
