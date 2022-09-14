@@ -37,4 +37,5 @@ jobs:
           heroku_app_name: "fullstack-pokedex321123" #Must be unique in Heroku
           heroku_email: "sudesh7443@gmail.com"
           healthcheck: "https://fullstack-pokedex321123.herokuapp.com/health"
-          checkstring: "ok-ok"
+          checkstring: "ok"
+          rollbackonhealthcheckfailed: true
