@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - master
-
   pull_request:
     branches: [master]
     types: [opened, synchronize]
-
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -35,9 +33,10 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
 
-        if: ${{ github.event_name == 'push' }}
+      
 
       - name: deploy to heroku
+        if: ${{ github.event_name == 'push' }}
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}} #Secret key for heroku api
@@ -46,3 +45,20 @@ jobs:
           healthcheck: "https://fullstack-pokedex321123.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+
+  tag-releases:
+    needs: [simple_deployment_pipeline]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.40.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
+        INITIAL_VERSION: 0.0.0
+
+
+  
