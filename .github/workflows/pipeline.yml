@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master
+
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
+
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -29,6 +34,8 @@ jobs:
           build: npm run build
           start: npm run start-prod
           wait-on: http://localhost:5000
+
+      if: ${{ github.event_name == 'push' }}
 
       - name: deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
