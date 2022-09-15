@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches: [master]
-    types: [opened, synchronize]
 jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
@@ -33,8 +30,6 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
 
-      if: ${{ github.event_name == 'push' }}
-
       - name: deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
@@ -44,6 +39,3 @@ jobs:
           healthcheck: "https://fullstack-pokedex321123.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
-
-
-###dummy commit
