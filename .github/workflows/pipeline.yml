@@ -61,7 +61,7 @@ jobs:
       with:
         fetch-depth: '0'
     - name: Bump version and push tag major
-      if : ${{!contains(env.JOIN_COMMIT_MESSAGES,'#major') && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
+      if : ${{contains(env.JOIN_COMMIT_MESSAGES,'#major') && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
       
       uses: anothrNick/github-tag-action@1.40.0
       id: major
@@ -70,7 +70,7 @@ jobs:
         JOIN_COMMIT_MESSAGES: ${{ join(github.event.commits.*.message)}}
 
     - name: Bump version and push tag 
-      if : ${{!contains(env.JOIN_COMMIT_MESSAGES,'#minor') && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
+      if : ${{contains(env.JOIN_COMMIT_MESSAGES,'#minor') && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
       uses: anothrNick/github-tag-action@1.40.0
       id : minor
       env:
