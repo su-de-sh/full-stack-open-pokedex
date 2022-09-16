@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: '16'
       - name: npm install
         run: npm install
       - name: lint
@@ -40,10 +40,10 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}} #Secret key for heroku api
-          heroku_app_name: "fullstack-pokedex321123" #Must be unique in Heroku
-          heroku_email: "sudesh7443@gmail.com"
-          healthcheck: "https://fullstack-pokedex321123.herokuapp.com/health"
-          checkstring: "ok"
+          heroku_app_name: 'fullstack-pokedex321123' #Must be unique in Heroku
+          heroku_email: 'sudesh7443@gmail.com'
+          healthcheck: 'https://fullstack-pokedex321123.herokuapp.com/health'
+          checkstring: 'ok'
           rollbackonhealthcheckfailed: true
 
   tag-releases:
@@ -79,7 +79,7 @@ jobs:
 
       
     - name: Bump version and push tag 
-      if : ${{ steps.major.conclusion != "success" && steps.minor.conclusion != "success" && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
+      if : ${{ steps.major.conclusion != 'success' && steps.minor.conclusion != 'success' && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
       uses: anothrNick/github-tag-action@1.40.0
       env:
         DEFAULT_BUMP: patch
