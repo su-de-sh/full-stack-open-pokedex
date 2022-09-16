@@ -1,6 +1,8 @@
+
+name: Healthcheck workflow!!
 on:
   schedule:
-    - cron: '01 4 * * fri'
+    - cron: '04 4 * * fri'
     
 
 jobs:
