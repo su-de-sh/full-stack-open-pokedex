@@ -63,5 +63,7 @@ jobs:
         INITIAL_VERSION: 0.0.0
         DEFAULT_BUMP: patch
 
+      run: echo "$JOIN_COMMIT_MESSAGES"
+
 
   
