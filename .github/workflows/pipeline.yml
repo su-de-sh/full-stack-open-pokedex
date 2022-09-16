@@ -121,7 +121,7 @@ jobs:
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: to https://fullstack-pokedex321123.herokuapp.com/ by su-de-sh
           text: New version of Pokedox deployed!!!!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
     
   
