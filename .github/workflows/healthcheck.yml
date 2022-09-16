@@ -1,8 +1,6 @@
-name: Health check
-
 on:
   schedule:
-    - cron:  '55 7 * * *'
+    - cron:  '0 8 * * *'
 
 jobs:
   health_check:
