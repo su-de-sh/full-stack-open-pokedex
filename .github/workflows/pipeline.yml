@@ -1,3 +1,5 @@
+
+#has code for major minor and patch release which can be controlled from commit message
 name: Project pipeline workflow!
 
 on:
