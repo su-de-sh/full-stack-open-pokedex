@@ -113,8 +113,8 @@ jobs:
         JOIN_COMMIT_MESSAGES: ${{ join(github.event.commits.*.message)}}
 
     - name: Test Success
-        uses: rjstone/discord-webhook-notify@v1
         if: success()
+        uses: rjstone/discord-webhook-notify@v1
         with:
             severity: info
             details: Test Succeeded!
