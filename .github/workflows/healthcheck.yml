@@ -1,0 +1,10 @@
+on:
+  schedule:
+    - cron: '40 4 * * Fri'
+    
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      -runs: echo "hello world!!"
