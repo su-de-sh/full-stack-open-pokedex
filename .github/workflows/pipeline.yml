@@ -113,14 +113,14 @@ jobs:
         JOIN_COMMIT_MESSAGES: ${{ join(github.event.commits.*.message)}}
 
     - name: Test Success
-        if: success()
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-            severity: info
-            details: Test Succeeded!
-            avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-            description: to https://fullstack-pokedex321123.herokuapp.com/ by su-de-sh
-            text: New version of Pokedox deployed!!!!
+      if: success()
+      uses: rjstone/discord-webhook-notify@v1
+      with:
+          severity: info
+          details: Test Succeeded!
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description: to https://fullstack-pokedex321123.herokuapp.com/ by su-de-sh
+          text: New version of Pokedox deployed!!!!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
     
