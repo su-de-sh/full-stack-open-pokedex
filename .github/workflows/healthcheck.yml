@@ -4,7 +4,17 @@ on:
     
 
 jobs:
-  test_schedule:
-    runs-on: ubuntu-latest
+  hello_world_job:
+    runs-on: ubuntu-20.04
     steps:
-      -run: echo "hello world!!"
+      - name: Say hello
+        run: |
+          echo "Hello World!"
+    
+      - name: Date
+        run: |
+          date
+  
+      - name: current directory content
+        run: |
+          ls -l
