@@ -69,7 +69,7 @@ jobs:
         DEFAULT_BUMP: major
         JOIN_COMMIT_MESSAGES: ${{ join(github.event.commits.*.message)}}
 
-    - name: Bump version and push tag 
+    - name: Bump version and push tag minor
       if : ${{contains(env.JOIN_COMMIT_MESSAGES,'#minor') && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
       uses: anothrNick/github-tag-action@1.40.0
       id : minor
