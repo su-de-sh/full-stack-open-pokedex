@@ -81,6 +81,7 @@ jobs:
 
 
   tag-releases:
+    permissions: write-all
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-latest
     
