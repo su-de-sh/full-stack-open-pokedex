@@ -57,6 +57,7 @@ jobs:
         with:
             severity: info
             details: Test Succeeded!
+            avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
             description: to https://fullstack-pokedex321123.herokuapp.com/ by su-de-sh
             text: New version of Pokedox deployed!!!!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
@@ -66,6 +67,7 @@ jobs:
         with:
             severity: error
             details: Test Failed!
+            avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test Cancelled
         uses: rjstone/discord-webhook-notify@v1
@@ -73,6 +75,7 @@ jobs:
         with:
             severity: warn
             details: Test Cancelled!
+            avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
     
 
