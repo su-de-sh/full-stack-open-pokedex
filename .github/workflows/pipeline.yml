@@ -58,6 +58,7 @@ jobs:
             severity: info
             details: Test Succeeded!
             description: to https://fullstack-pokedex321123.herokuapp.com/ by su-de-sh
+            text: New version of Pokedox deployed!!!!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test Failure
         uses: rjstone/discord-webhook-notify@v1
