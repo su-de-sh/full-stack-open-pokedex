@@ -62,6 +62,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: '0'
+    # bump tags and releases
     - name: Bump version and push tag major
       if : ${{contains(env.JOIN_COMMIT_MESSAGES,'#major') && !contains(env.JOIN_COMMIT_MESSAGES,'#skip')}}
       
@@ -86,6 +87,31 @@ jobs:
       env:
         DEFAULT_BUMP: patch
         JOIN_COMMIT_MESSAGES: ${{ join(github.event.commits.*.message)}}
+
+
+    # message to discord
+
+    - name: Test Success
+      uses: rjstone/discord-webhook-notify@v1
+      if: success()
+      with:
+          severity: info
+          details: Test Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+    - name: Test Failure
+      uses: rjstone/discord-webhook-notify@v1
+      if: failure()
+      with:
+          severity: error
+          details: Test Failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+    - name: Test Cancelled
+      uses: rjstone/discord-webhook-notify@v1
+      if: cancelled()
+      with:
+          severity: warn
+          details: Test Cancelled!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
    
 
 
